@@ -1,4 +1,55 @@
 // =============================================
+// =========Tween stack for home page===========
+// =============================================
+TweenMax.staggerFrom(".header", 1.5, {
+  opacity: 0,
+  y: 25,
+  ease: Expo.easeInOut,
+  delay: 0
+}, 0.1);
+TweenMax.staggerFrom(".home_section #pat_1", 1.5, {
+  opacity: 0,
+  ease: Expo.easeInOut,
+  delay: 0.3
+}, 0.09);
+TweenMax.staggerFrom(".home_section .content h1 span", 1.5, {
+  opacity: 0,
+  y: 25,
+  ease: Expo.easeInOut,
+  delay: 0.2
+}, 0.05);
+TweenMax.staggerFrom(".home_section .content p", 1.5, {
+  opacity: 0,
+  y: 25,
+  ease: Expo.easeInOut,
+  delay: 2
+}, 0.07);
+// TweenMax.staggerFrom(".navbar", 1.5, {
+//   opacity: 0,
+//   y: -30,
+//   ease: Expo.easeInOut,
+//   delay: 0
+// }, 0.09);
+// TweenMax.staggerFrom(".line1 h2", 1.5, {
+//   opacity: 0,
+//   x: -30,
+//   ease: Expo.easeInOut,
+//   delay: 0
+// }, 0.09);
+// TweenMax.staggerFrom(".line2 span", 1, {
+//   opacity: 0,
+//   x: 30,
+//   ease: Expo.easeInOut,
+//   delay: 0
+// }, 0.09);
+// TweenMax.staggerFrom(".line1 h1,.circles", 1, {
+//   opacity: 0,
+//   scale: 0.5,
+//   ease: Expo.easeOut,
+//   delay: 0
+// }, 0.09);
+
+// =============================================
 // ==============Navbar javascript==============
 // =============================================
 const mobileToggle = document.querySelector(".mobile-toggle");
