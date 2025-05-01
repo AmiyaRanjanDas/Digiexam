@@ -36,8 +36,55 @@ html {
 body{
   font-family: "Roboto", sans-serif;
 }
-/* ===================navbar  section===================== */
+body.disable-scroll {
+  overflow: hidden;
+}
 
+/* -----------------PreLoader------------------ */
+.preLoader {
+  position: fixed; 
+  overflow: hidden;
+  width: 0%;
+  height: 100vh;  
+  font-family: "Special Gothic Expanded One", sans-serif;
+  z-index: 100;
+}
+.loder{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-transform: uppercase;
+  z-index: 51;
+  font-size: 2vw;
+  color: white;
+  opacity: 0;
+}
+@media only screen and (max-width: 500px) {
+  .loder{
+      font-size: 6vw;
+  }
+}
+.overlay{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.block{
+  position: absolute;
+  width: 0%;
+  height: 100vh;
+  z-index: 50;
+  background: linear-gradient(#801005,black);
+}
+.block-1{left: 0%;}  .block-2{left: 5%;}  .block-3{left: 10%;}  .block-4{left: 15%;}
+.block-5{left: 20%;}  .block-6{left: 25%;}  .block-7{left: 30%;}  .block-8{left: 35%;}
+.block-9{left: 40%;}  .block-10{left: 45%;}  .block-11{left: 50%;}  .block-12{left: 55%;}
+.block-13{left: 60%;}  .block-14{left: 65%;}  .block-15{left: 70%;}  .block-16{left: 75%;}
+.block-17{left: 80%;}  .block-18{left: 85%;}  .block-19{left: 90%;}  .block-20{left: 95%;}
+
+
+/* ===================navbar  section===================== */
 .header {
  padding: 20px 30px;
   position: fixed;
@@ -319,36 +366,11 @@ body{
   align-items: center;
   justify-content: center;
 }
-.home_section:after{
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: -1;
-}
-.home_section video{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-.home_section #pat_1{
-  position: absolute;
-  width: 400px;
-  top: 0;
-  left: 0;
-  transform: translate(-25%,-25%);
-  animation: anim_1 25s infinite linear;
-}
-@keyframes anim_1 {
-  0%{transform: translate(-25%,-25%) rotate(0deg);}
-  100% {transform: translate(-25%,-25%) rotate(360deg);}
-}
 .home_section .content{
+  position: absolute;
   text-align: center;
   padding: 0 30px;
+  z-index: 1;
 }
 .home_section .content br{
   display: none;
@@ -367,7 +389,10 @@ body{
   color: var(--white);
   margin: 0;
 }
-
+#carouselExampleAutoplaying{
+  width: 100%;
+  height: 100%;
+}
 @media screen and (max-width: 768px) {
   .home_section #pat_1{
     width: 300px;
@@ -382,6 +407,65 @@ body{
   .home_section .content p{
     font-size: 15px;
   }
+}
+/* ==================scroll section===================== */
+.scroll_section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 135vh;
+  width: 100%;
+  padding: 0 20px;
+}
+.scroll_section .content{
+  position: relative;
+}
+.scroll_section .h1_box{
+  overflow: hidden;
+  text-align: center;
+}
+.scroll_section .h1_box h1{
+  font-family: "Anton", sans-serif;
+  font-size: 150px;
+  line-height: 150px;
+  margin: 0;
+  transform: translateY(80%);
+  transition: transform 0.5s ease; 
+  will-change: transform;
+}
+.scroll_section .flex_box_gap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 200px;
+}
+.scroll_section .img_box{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%,40%);
+  transition: transform 0.5s ease; 
+  will-change: transform;
+}
+.scroll_section .row{
+  width: 100%;
+}
+.scroll_section .datas{
+  padding-top: 70px;
+  padding-left: 40px;
+}
+.scroll_section .datas p{
+  font-size: 30px; 
+  letter-spacing: -0.5px;
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 24px;
+  color: var(--ternaryColor);
+}
+.scroll_section .datas .spanz{
+  width: 60%;  
+  font-weight: 500;
 }
 /* ==================commercial section===================== */
 .commercials_section .containerz{
@@ -464,11 +548,12 @@ body{
     height: 300px;
   }
 }
+
 /* ==================client section===================== */
 .client_section{
   position: relative;
   overflow: hidden;
-  padding: 100px 10px;
+  padding: 25px 10px 100px;
   background: var(--white);
 }
 .client_section .content{
@@ -482,91 +567,45 @@ body{
   100% {transform: translateX(-100%);}
 }
 .client_section .content img{
-  height: 70px;
+  height: 80px;
   margin:0 50px;
   transition: 0.3s ease-in-out;
 }
 .client_section .content img:hover{
   transform: scale(1.1);
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* ==================footer section===================== */
-.teams_section{
-  padding: 40px;
-}
-.teams_section .card{
-  border: none;
-  background: var(--offWhite);
-}
-.teams_section .img_div{
-  position: relative;
-  text-align: center;
-  padding: 40px 0;
-}
-.teams_section #prof_img{
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  position: relative;
-  border-radius: 50%;
-  z-index: 2;
-}
-.teams_section #bg_img{
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-  z-index: 1;
-}
-.teams_section .content_div{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px;
-  margin-top: 0px;
-}
-.teams_section .content_div h5{
-  margin-bottom: 15px;
-}
-.teams_section .content_div a{
-  text-decoration: none;
-  color: var(--ternaryColor);
-  margin: 0 7px;
-}
-@media screen and (max-width: 768px) {
-  .teams_section{
-    padding: 20px;
-  }
 }
 
 /* ==================footer section===================== */
 .footer_section{
-  padding: 0 30px;
-  background: var(--white);
-}
-.footer_section .content{
-  padding: 20px 10px;
+  padding: 60px 30px 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid #00000030;
+  justify-content: center;
 }
-.footer_section p{
-  margin: 0;
-  font-size: 12px;
+.footer_section .social_media{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .footer_section .social_media a{
   color: var(--black);
-  padding: 0 10px;
+  padding: 0 30px;
   text-decoration: none;
   transition: 0.3s ease-in-out;
+  font-size: 25px;
 }
-.footer_section .social_media a:hover{
-  color: var(--ternaryColor);
+.footer_section .social_media a i{
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(var(--ternaryColor),black);
+  color: var(--white);
+  border-radius: 50%;
+}
+.footer_section .social_media a i:hover{
+  color: var(--offWhite);
 }
 @media screen and (max-width: 768px) {
   .footer_section {

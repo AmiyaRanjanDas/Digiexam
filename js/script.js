@@ -1,3 +1,24 @@
+//Preloader
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.body.classList.remove('disable-scroll');
+  }, 4000); // 4000ms = 4 seconds
+});
+TweenMax.staggerFrom(".preLoader", 1.5, {
+  width: "100%",
+  ease: Power1.easeIn,
+  delay: 4
+}, 0.09);
+TweenMax.staggerFrom(".block", 0.8, {
+  width: "5.1%",
+  ease: Power1.easeIn,
+  delay: 1
+}, 0.07);
+TweenMax.staggerFrom(".loder", 1.5, {
+  opacity: 1,
+  ease: Power1.easeIn,
+  delay: 0.5
+}, 0.09);
 // =============================================
 // =========Tween stack for home page===========
 // =============================================
@@ -5,49 +26,20 @@ TweenMax.staggerFrom(".header", 1.5, {
   opacity: 0,
   y: 25,
   ease: Expo.easeInOut,
-  delay: 0
+  delay: 2.5
 }, 0.1);
-TweenMax.staggerFrom(".home_section #pat_1", 1.5, {
-  opacity: 0,
-  ease: Expo.easeInOut,
-  delay: 0.3
-}, 0.09);
 TweenMax.staggerFrom(".home_section .content h1 span", 1.5, {
   opacity: 0,
   y: 25,
   ease: Expo.easeInOut,
-  delay: 0.2
+  delay: 2.8
 }, 0.05);
 TweenMax.staggerFrom(".home_section .content p", 1.5, {
   opacity: 0,
   y: 25,
   ease: Expo.easeInOut,
-  delay: 2
+  delay: 3
 }, 0.07);
-// TweenMax.staggerFrom(".navbar", 1.5, {
-//   opacity: 0,
-//   y: -30,
-//   ease: Expo.easeInOut,
-//   delay: 0
-// }, 0.09);
-// TweenMax.staggerFrom(".line1 h2", 1.5, {
-//   opacity: 0,
-//   x: -30,
-//   ease: Expo.easeInOut,
-//   delay: 0
-// }, 0.09);
-// TweenMax.staggerFrom(".line2 span", 1, {
-//   opacity: 0,
-//   x: 30,
-//   ease: Expo.easeInOut,
-//   delay: 0
-// }, 0.09);
-// TweenMax.staggerFrom(".line1 h1,.circles", 1, {
-//   opacity: 0,
-//   scale: 0.5,
-//   ease: Expo.easeOut,
-//   delay: 0
-// }, 0.09);
 
 // =============================================
 // ==============Navbar javascript==============
@@ -138,66 +130,32 @@ window.addEventListener("resize", () => {
   }
 });
 
-// =============================================
-// ===========carousel in home page=============
-// =============================================
-$(document).ready(function () {
-  $("#owl-carousel-1").owlCarousel({
-    loop: true, // Enable infinite loop
-    margin: 30, // Space between items
-    nav: true, // Show next/prev buttons
-    dots: false, // Show dots navigation
-    responsive: {
-      0: {
-        items: 1, // Items for small screens
-      },
-      600: {
-        items: 2, // Items for medium screens
-      },
-      1000: {
-        items: 3, // Items for large screens
-      },
-    },
+
+// ==========================================
+// ==============scroll section==============
+// ==========================================
+const scrollSection = document.querySelector('.scroll_section');
+const h1s = scrollSection.querySelectorAll('.h1_box h1');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+  const sectionTop = scrollSection.offsetTop;
+  const sectionHeight = scrollSection.offsetHeight;
+  const windowHeight = window.innerHeight;
+  const imgBox = document.querySelector('.img_box');
+
+  // How far into the section are we?
+  const distanceFromTop = scrollY + windowHeight - sectionTop;
+  const scrollProgress = Math.min(Math.max(distanceFromTop / sectionHeight, 0), 1); 
+
+  // Calculate transform based on progress
+  const translateY = 80 - scrollProgress * 80; // from 80% to 0%
+
+  h1s.forEach(h1 => {
+    h1.style.transform = `translateY(${translateY}%)`;
   });
+  const imgTranslateY = 80 - scrollProgress * 80;
+  imgBox.style.transform = `translate(-50%, ${imgTranslateY}%)`;
 });
 
-// =============================================
-// ========carousel in what we do page==========
-// =============================================
-$(document).ready(function () {
-  $("#owl-carousel-2").owlCarousel({
-    loop: true, // Enable infinite loop
-    margin: 30, // Space between items
-    nav: true, // Show next/prev buttons
-    dots: false, // Show dots navigation
-    responsive: {
-      0: {
-        items: 1, // Items for small screens
-      },
-      600: {
-        items: 2, // Items for medium screens
-      },
-      1000: {
-        items: 4, // Items for large screens
-      },
-    },
-  });
-});
 
-// =============================================
-// ========accordian in what we do page=========
-// =============================================
-$(document).ready(function () {
-  $(".accordion-list > li > .answer").hide();
-
-  $(".accordion-list > li").click(function () {
-    if ($(this).hasClass("active")) {
-      $(this).removeClass("active").find(".answer").slideUp();
-    } else {
-      $(".accordion-list > li.active .answer").slideUp();
-      $(".accordion-list > li.active").removeClass("active");
-      $(this).addClass("active").find(".answer").slideDown();
-    }
-    return false;
-  });
-});
