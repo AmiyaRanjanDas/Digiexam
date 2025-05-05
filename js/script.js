@@ -146,7 +146,7 @@ window.addEventListener('scroll', () => {
 
   // How far into the section are we?
   const distanceFromTop = scrollY + windowHeight - sectionTop;
-  const scrollProgress = Math.min(Math.max(distanceFromTop / sectionHeight, 0), 1); 
+  const scrollProgress = Math.min(Math.max(distanceFromTop*1.4 / sectionHeight, 0), 1); 
 
   // Calculate transform based on progress
   const translateY = 80 - scrollProgress * 80; // from 80% to 0%

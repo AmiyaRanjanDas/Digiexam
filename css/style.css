@@ -40,6 +40,10 @@ body.disable-scroll {
   overflow: hidden;
 }
 
+/* ---------------carousel library------------- */
+.carousel-item img {
+  object-fit: cover;
+}
 /* -----------------PreLoader------------------ */
 .preLoader {
   position: fixed; 
