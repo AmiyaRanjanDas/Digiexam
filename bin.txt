@@ -1,0 +1,60 @@
+/* ==================scroll section===================== */
+/* .scroll_section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 135vh;
+  width: 100%;
+  padding: 0 20px;
+}
+.scroll_section .content{
+  position: relative;
+}
+.scroll_section .h1_box{
+  overflow: hidden;
+  text-align: center;
+}
+.scroll_section .h1_box h1{
+  font-family: "Anton", sans-serif;
+  font-size: 150px;
+  line-height: 150px;
+  margin: 0;
+  transform: translateY(80%);
+  transition: transform 0.5s ease; 
+  will-change: transform;
+}
+.scroll_section .flex_box_gap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 200px;
+}
+.scroll_section .img_box{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%,40%);
+  transition: transform 0.5s ease; 
+  will-change: transform;
+}
+.scroll_section .row{
+  width: 100%;
+}
+.scroll_section .datas{
+  padding-top: 70px;
+  padding-left: 40px;
+}
+.scroll_section .datas p{
+  font-size: 30px; 
+  letter-spacing: -0.5px;
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 24px;
+  color: var(--ternaryColor);
+}
+.scroll_section .datas .spanz{
+  width: 60%;  
+  font-weight: 500;
+} */
+

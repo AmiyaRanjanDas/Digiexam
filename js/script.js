@@ -134,28 +134,28 @@ window.addEventListener("resize", () => {
 // ==========================================
 // ==============scroll section==============
 // ==========================================
-const scrollSection = document.querySelector('.scroll_section');
-const h1s = scrollSection.querySelectorAll('.h1_box h1');
+// const scrollSection = document.querySelector('.scroll_section');
+// const h1s = scrollSection.querySelectorAll('.h1_box h1');
 
-window.addEventListener('scroll', () => {
-  const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-  const sectionTop = scrollSection.offsetTop;
-  const sectionHeight = scrollSection.offsetHeight;
-  const windowHeight = window.innerHeight;
-  const imgBox = document.querySelector('.img_box');
+// window.addEventListener('scroll', () => {
+//   const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+//   const sectionTop = scrollSection.offsetTop;
+//   const sectionHeight = scrollSection.offsetHeight;
+//   const windowHeight = window.innerHeight;
+//   const imgBox = document.querySelector('.img_box');
 
-  // How far into the section are we?
-  const distanceFromTop = scrollY + windowHeight - sectionTop;
-  const scrollProgress = Math.min(Math.max(distanceFromTop*1.4 / sectionHeight, 0), 1); 
+//   // How far into the section are we?
+//   const distanceFromTop = scrollY + windowHeight - sectionTop;
+//   const scrollProgress = Math.min(Math.max(distanceFromTop*1.4 / sectionHeight, 0), 1); 
 
-  // Calculate transform based on progress
-  const translateY = 80 - scrollProgress * 80; // from 80% to 0%
+//   // Calculate transform based on progress
+//   const translateY = 80 - scrollProgress * 80; // from 80% to 0%
 
-  h1s.forEach(h1 => {
-    h1.style.transform = `translateY(${translateY}%)`;
-  });
-  const imgTranslateY = 80 - scrollProgress * 80;
-  imgBox.style.transform = `translate(-50%, ${imgTranslateY}%)`;
-});
+//   h1s.forEach(h1 => {
+//     h1.style.transform = `translateY(${translateY}%)`;
+//   });
+//   const imgTranslateY = 80 - scrollProgress * 80;
+//   imgBox.style.transform = `translate(-50%, ${imgTranslateY}%)`;
+// });
 
 
