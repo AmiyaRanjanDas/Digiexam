@@ -54,6 +54,41 @@ body.disable-scroll {
     height: 100%;
   }
 }
+/* ---------------carousel library------------- */
+.btn_box{
+  position: relative;
+  background: url("../new_images/nav_bg.png");
+  background-size: 400%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px solid var(--ternaryColor);
+  display: inline-block;
+}
+.btn_box button{
+  padding: 10px 15px 10px 20px;
+  background: linear-gradient(165deg,transparent,#800f05fc,#800f05f7,#801005);
+  height: 100%;width: 100%;
+  border: none;
+  color: var(--white);
+  transition: 0.5s ease-in-out;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.btn_box button i{
+  font-size: 25px;
+  font-weight: 500;
+  transition: 0.5s ease-in-out;
+  padding-right: 5px;
+}
+.btn_box button:hover{
+  color: var(--primaryColor);
+}
+.btn_box button:hover i{
+  padding-left: 5px;
+  padding-right: 0;
+}
 /* =====main header(header used for heading tag======= */
 .main_head{
   text-align: center;
@@ -126,7 +161,7 @@ body.disable-scroll {
 }
 .hero_container .content{
   width: 70%;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 .hero_container .content h6{
   font-size: 18px;
@@ -138,7 +173,7 @@ body.disable-scroll {
   font-size: 45px;
   padding: 10px 0px;
   font-weight: 400;
-  margin: 15px 0 35px;
+  margin: 15px 0 0;
   font-family: "Special Gothic Expanded One", sans-serif;
 }
 .hero_container .content button{
@@ -854,22 +889,86 @@ body.disable-scroll {
   }
 }
 
+/* =================mission section=================== */
+.mission_section{
+  position: relative;
+  background: var(--white);
+}
+.mission_section .card{
+  position: relative;  
+  top: -75px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  border: 2px solid var(--ternaryColor);
+}
+.mission_section .card:after{
+  position: absolute;
+  z-index: 1;
+  content: "";
+  top: 0;
+  left: 0;
+  transform:translate(-50%,-70%) rotate(60deg);
+  background: 
+    linear-gradient(90deg,transparent,transparent,transparent,transparent,#ffffff,#ffffff,#ffffff), 
+    url("../new_images/nav_bg.png");
+  background-size: 250%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 300px;
+  width: 300px;
+}
+.mission_section .content{
+  position: relative;
+  z-index: 2;
+}
+.mission_section .main_head{
+    padding:0 0 10px;
+}
+.mission_section .main_head h1{
+  font-size: 25px;
+}
+.mission_section .main_head h1:after{
+  top: 80%;
+}
+.mission_section .content p{
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .mission_section .main_head h1{
+    font-size: 22px;
+  }
+  .mission_section .content p{
+    font-size: 14px;
+  }
+}
 /* ==================about section===================== */
 .about_section{
   background: var(--white);
-  padding: 40px 0 60px;
+  padding: 0px 0 30px;
 }
 .about_section .content p{
   font-weight: 500;
   text-align: justify;
   font-size: 20px;
+  margin: 0;
 }
 .about_section img{
   width: 100%;
 }
+.about_section .modal-header{
+  padding: 0.5rem 1rem;
+  background: var(--primaryColor);
+}
+.about_section .modal-body{
+  padding: 0;
+}
 @media (max-width: 768px) {
   .about_section{
-    padding: 60px 10px 20px;
+    padding: 0px 10px 20px;
   }
 }
 @media (max-width: 450px) {
@@ -891,6 +990,10 @@ body.disable-scroll {
   border-radius: 10px;
   padding: 20px;
   min-height: 150px;
+  cursor: pointer;
+}
+.whychooseus_section .cardz:hover img{
+  transform: scale(1.1);
 }
 .whychooseus_section .cardz img{
   padding: 10px;
@@ -899,6 +1002,7 @@ body.disable-scroll {
   background: var(--primaryColor);
   border-radius: 50%;
   border: 5px solid var(--ternaryColor);
+  transition: 0.3s ease-in-out;
 }
 .whychooseus_section .cardz .content{
   font-size: 14px;
@@ -942,7 +1046,7 @@ body.disable-scroll {
 }
 .slide .slide__content {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -967,7 +1071,7 @@ body.disable-scroll {
 /* ARROW BASE STYLES */
 .slick-prev, .slick-next {
   position: absolute;
-  top: 50%;
+  top: 55%;
   z-index: 2;
   display: block;
   width: 40px;
@@ -1047,67 +1151,15 @@ body.disable-scroll {
   -webkit-animation-name: zoomOutImage;
   animation-name: zoomOutImage;
 }
-/* =================mission section=================== */
-.mission_section{
-  position: relative;
-  top: -75px;
-}
-.mission_section .card{
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  border: 2px solid var(--ternaryColor);
-}
-.mission_section .card:after{
-  position: absolute;
-  z-index: 1;
-  content: "";
-  top: 0;
-  left: 0;
-  transform:translate(-50%,-70%) rotate(60deg);
-  background: 
-    linear-gradient(90deg,transparent,transparent,transparent,transparent,#ffffff,#ffffff,#ffffff), 
-    url("../new_images/nav_bg.png");
-  background-size: 250%;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 300px;
-  width: 300px;
-}
-.mission_section .content{
-  position: relative;
-  z-index: 2;
-}
-.mission_section .main_head{
-    padding:0 0 10px;
-}
-.mission_section .main_head h1{
-  font-size: 25px;
-}
-.mission_section .main_head h1:after{
-  top: 80%;
-}
-.mission_section .content p{
-  margin: 0;
-}
-@media (max-width: 768px) {
-  .mission_section .main_head h1{
-    font-size: 22px;
-  }
-  .mission_section .content p{
-    font-size: 14px;
-  }
-}
 /* =================service section=================== */
+.services_section{
+  padding: 40px 0 0;
+}
 .services_section .content h2{
   font-size: 40px;
 }
 .services_section .row{
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 .services_section .content h2 span{
   font-size: 20px;
@@ -1119,7 +1171,9 @@ body.disable-scroll {
   width: 70%;
 }
 @media (max-width: 768px) {
-  
+  .services_section .row{
+    margin-bottom: 40px;
+  }
   .services_section .row:nth-child(even){
     flex-direction: column-reverse;
   }
