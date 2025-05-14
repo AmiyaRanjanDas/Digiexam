@@ -214,6 +214,39 @@ body.disable-scroll {
 .block-17{left: 80%;}  .block-18{left: 85%;}  .block-19{left: 90%;}  .block-20{left: 95%;}
 
 
+
+/* ============  +++  ============= */
+.loaderz{
+  position: fixed; 
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;  
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  background: var(--ternaryColor);
+  opacity: 0;
+}
+.loaderz .content,.loaderz .contentz{
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.loaderz .contentz{
+  position: absolute;
+}
+.loaderz .content img{
+  position: relative;
+  height: 50px;
+  top: -50px;
+}
+.loaderz .contentz img{
+  position: relative;
+  height: 50px;
+  top: 0px;
+}
 /* ===================navbar  section===================== */
 .header {
  padding: 20px 30px;
@@ -885,9 +918,18 @@ body.disable-scroll {
   position: relative;
 }
 .slide .slide__img {
+  position: relative;
   height: 100%;
   width: 100%;
   overflow: hidden;
+}
+.slide .slide__img:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
 }
 .slide .slide__img img {
   height: 100%;
@@ -1094,6 +1136,120 @@ body.disable-scroll {
     width: 80%;
   }
 }
+
+/* ==================Contact US Page=================== */
+/* ==================================================== */
+/* ==================================================== */
+
+/* =================service hero section=================== */
+.contactus_section .hero_container{
+  height: 75vh;
+} 
+@media (max-width: 768px) {
+  .contactus_section .content h1 {
+    font-size: 30px;
+    margin: 0;
+  }
+}
+
+/* ====================contact section==================== */
+.contact_section{
+  padding: 0 100px;
+  background: var(--ternaryColor);
+}
+@media (max-width: 920px) {
+  .contact_section {
+    padding: 0 25px;
+  }
+}
+.contact_section h2{
+  color: var(--white);
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+.contact_section p{
+  color: rgba(255, 255, 255, 0.7);
+}
+.contact_section form{
+  color: rgba(255, 255, 255, 0.7);
+}
+.contact_section form .form-control{
+  background: var(--offWhite);
+  border-color: #480903;
+}
+.contact_section form .form-control:focus {
+  border-color: var(--white);
+  box-shadow: 3px 3px 7px #bdd63058;
+}
+.contact_section form button{
+  border: none;
+  background: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  color: var(--white);
+  width: fit-content;
+}
+.contact_section form button i{
+  font-size: 40px;
+  margin-left: 10px;
+  background: #1a2e43;
+  color: var(--white);
+  border-radius: 50%;
+  font-weight: 400;
+  transition: 0.3s ease-in-out !important;
+}
+.contact_section form button:hover i{  
+  background: var(--primaryColor);
+}
+
+/* ====================map section==================== */
+.map_section{
+  padding: 0 100px;
+  background: var(--offWhite);
+}
+.map_section #map{
+  height: 60vh;
+  width: 100%;
+}
+@media (max-width: 920px) {
+  .map_section {
+    padding: 0 25px;
+  }
+  .map_section #map{
+    height: 50vh;
+  }
+}
+.map_section .content h2{
+  margin-bottom: 22px;
+}
+.map_section .content span{
+  display: inline-block;
+  border: 2px solid var(--ternaryColor);
+  color: var(--ternaryColor);
+  padding: 5px 15px 7px;
+  border-radius: 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+}
+.map_section .content span:hover{
+  background: var(--primaryColor);
+  color: var(--ternaryColor);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2032,92 +2188,3 @@ body.disable-scroll {
 /* =============================================================== */
 /* ===========================contact============================= */
 /* =============================================================== */
-
-/* ====================contact section==================== */
-.contact_section{
-  padding: 0 100px;
-  background: var(--ternaryColor);
-}
-@media (max-width: 920px) {
-  .contact_section {
-    padding: 0 25px;
-  }
-}
-.contact_section h2{
-  color: var(--white);
-  font-weight: 400;
-  margin-bottom: 18px;
-}
-.contact_section p{
-  color: rgba(255, 255, 255, 0.7);
-}
-.contact_section form{
-  color: rgba(255, 255, 255, 0.7);
-}
-.contact_section form .form-control{
-  background: var(--offWhite);
-  border-color: #480903;
-}
-.contact_section form .form-control:focus {
-  border-color: var(--white);
-  box-shadow: 3px 3px 7px #bdd63058;
-}
-.contact_section form button{
-  border: none;
-  background: none;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  margin-top: 25px;
-  color: var(--white);
-  width: fit-content;
-}
-.contact_section form button i{
-  font-size: 40px;
-  margin-left: 10px;
-  background: #1a2e43;
-  color: var(--white);
-  border-radius: 50%;
-  font-weight: 400;
-  transition: 0.3s ease-in-out !important;
-}
-.contact_section form button:hover i{  
-  background: var(--primaryColor);
-}
-
-/* ====================map section==================== */
-.map_section{
-  padding: 0 100px;
-  background: var(--offWhite);
-}
-.map_section #map{
-  height: 60vh;
-  width: 100%;
-}
-@media (max-width: 920px) {
-  .map_section {
-    padding: 0 25px;
-  }
-  .map_section #map{
-    height: 50vh;
-  }
-}
-.map_section .content h2{
-  margin-bottom: 22px;
-}
-.map_section .content span{
-  display: inline-block;
-  border: 2px solid var(--ternaryColor);
-  color: var(--ternaryColor);
-  padding: 5px 15px 7px;
-  border-radius: 20px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  font-weight: 500;
-}
-.map_section .content span:hover{
-  background: var(--primaryColor);
-  color: var(--ternaryColor);
-}

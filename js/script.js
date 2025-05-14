@@ -2,23 +2,34 @@
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.body.classList.remove('disable-scroll');
-  }, 3000); // 4000ms = 4 seconds
+  }, 5000); // 4000ms = 4 seconds
 });
-TweenMax.staggerFrom(".preLoader", 1.5, {
-  width: "100%",
+
+TweenMax.staggerFrom(".loaderz", 1.5, {
+  opacity: "1",
   ease: Power1.easeIn,
-  delay: 4
-}, 0.09);
-TweenMax.staggerFrom(".block", 0.8, {
-  width: "5.1%",
+  delay: 4.5
+}, 0.02);
+TweenMax.staggerTo(".loaderz", 1.5, {
+  display: "none",
+  ease: Power1.easeIn,
+  delay: 7
+}, 0.05);
+TweenMax.staggerFrom(".loaderz .content img", 0.8, {
+  top: "0",
   ease: Power1.easeIn,
   delay: 1
-}, 0.05);
-TweenMax.staggerFrom(".loder", 1.5, {
-  opacity: 1,
+}, 0.15);
+TweenMax.staggerFrom(".loaderz .contentz img", 0.8, {
+  top: "50px",
   ease: Power1.easeIn,
-  delay: 0
-}, 0.07);
+  delay: 1
+}, 0.15);
+TweenMax.staggerTo(".loaderz .contentz img", 0.8, {
+  top: "-50px",
+  ease: Power1.easeIn,
+  delay: 3
+}, 0.15);
 // =============================================
 // =========Tween stack for home page===========
 // =============================================
@@ -26,19 +37,19 @@ TweenMax.staggerFrom(".header", 1.5, {
   opacity: 0,
   y: 25,
   ease: Expo.easeInOut,
-  delay: 2
+  delay: 5
 }, 0.1);
 TweenMax.staggerFrom(".home_section .content h1 span", 1.5, {
   opacity: 0,
   y: 25,
   ease: Expo.easeInOut,
-  delay: 2.2
+  delay: 5.4
 }, 0.05);
 TweenMax.staggerFrom(".home_section .content p", 1.5, {
   opacity: 0,
   y: 25,
   ease: Expo.easeInOut,
-  delay: 2.5
+  delay: 5.6
 }, 0.07);
 
 // =============================================
